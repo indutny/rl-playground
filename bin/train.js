@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+import yargs from 'yargs';
+import path from 'path';
+
+import Model from '../lib/model.js';
+import { Maze, Sequence, Bandit } from '../lib/env/index.js';
+import Train from '../lib/train.js';
+
+const argv = yargs
+  .option('lr', { type: 'number', default: 0.01 })
+  .option('batch-size', { type: 'number', default: 128 })
+  .option('max-steps', { type: 'number', default: 128 })
+  .option('entropy-alpha', { type: 'number', default: 0.2 })
+  .option('log-dir', { type: 'string', default: path.join('.', 'logs') })
+  .option('name', { type: 'string', default: 'default' })
+  .option('print-env-every', { type: 'number', default: 100 })
+  .argv;
+
+const t = new Train(Model, Sequence, {
+  lr: argv.lr,
+  batchSize: argv['batch-size'],
+  maxSteps: argv['max-steps'],
+  entropyAlpha: argv['entropy-alpha'],
+  logDir: argv['log-dir'],
+  runName: argv['name'],
+
+  printEnvEvery: argv['print-env-every'],
+});
+
+t.run().catch((e) => {
+  console.error(e.stack);
+  process.exit(1);
+});
