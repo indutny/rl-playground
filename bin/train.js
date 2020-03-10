@@ -14,6 +14,7 @@ const argv = yargs
   .option('log-dir', { type: 'string', default: path.join('.', 'logs') })
   .option('name', { type: 'string', default: 'default' })
   .option('print-env-every', { type: 'number', default: 100 })
+  .option('dump-heap-every', { type: 'number', default: 0 })
   .argv;
 
 const t = new Train(Model, Sequence, {
@@ -25,6 +26,7 @@ const t = new Train(Model, Sequence, {
   runName: argv['name'],
 
   printEnvEvery: argv['print-env-every'],
+  dumpHeapEvery: argv['dump-heap-every'],
 });
 
 t.run().catch((e) => {
