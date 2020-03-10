@@ -12,7 +12,7 @@ const argv = yargs
   .option('max-steps', { type: 'number', default: 128 })
   .option('entropy-alpha', { type: 'number', default: 0.2 })
   .option('log-dir', { type: 'string', default: path.join('.', 'logs') })
-  .option('name', { type: 'string', default: 'default' })
+  .option('name', { type: 'string', default: `default-${Date.now()}` })
   .option('print-env-every', { type: 'number', default: 100 })
   .option('dump-heap-every', { type: 'number', default: 0 })
   .argv;
