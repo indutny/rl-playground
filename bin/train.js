@@ -2,7 +2,7 @@
 import yargs from 'yargs';
 import path from 'path';
 
-import Model from '../lib/model.js';
+import { RNNModel } from '../lib/model/index.js';
 import { Maze, Sequence, Bandit } from '../lib/env/index.js';
 import Train from '../lib/train.js';
 
@@ -17,7 +17,7 @@ const argv = yargs
   .option('dump-heap-every', { type: 'number', default: 0 })
   .argv;
 
-const t = new Train(Model, Sequence, {
+const t = new Train(RNNModel, Sequence, {
   lr: argv.lr,
   batchSize: argv['batch-size'],
   maxSteps: argv['max-steps'],
