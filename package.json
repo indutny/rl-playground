@@ -5,7 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint lib",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "npm run lint"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +15,8 @@
   "dependencies": {
     "@indutny/maze": "^1.0.0",
     "@tensorflow/tfjs-node": "^1.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0"
   }
 }
