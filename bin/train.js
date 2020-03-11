@@ -3,7 +3,7 @@ import yargs from 'yargs';
 import path from 'path';
 
 import { RNNModel } from '../lib/model/index.js';
-import { Maze, Sequence, Bandit } from '../lib/env/index.js';
+import { Maze, Sequence, Bandit, TicTacToe } from '../lib/env/index.js';
 import Train from '../lib/train.js';
 
 const argv = yargs
