@@ -30,6 +30,7 @@ const t = new Train(RNNModel, TicTacToe, {
 
   avatar: {
     count: 1,
+    totalCount: 5,
   }
 });
 
