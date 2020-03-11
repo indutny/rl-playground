@@ -17,7 +17,7 @@ const argv = yargs
   .option('dump-heap-every', { type: 'number', default: 0 })
   .argv;
 
-const t = new Train(RNNModel, Sequence, {
+const t = new Train(RNNModel, TicTacToe, {
   lr: argv.lr,
   batchSize: argv['batch-size'],
   maxSteps: argv['max-steps'],
@@ -27,6 +27,10 @@ const t = new Train(RNNModel, Sequence, {
 
   printEnvEvery: argv['print-env-every'],
   dumpHeapEvery: argv['dump-heap-every'],
+
+  avatar: {
+    count: 1,
+  }
 });
 
 t.run().catch((e) => {
