@@ -20,7 +20,7 @@ const argv = yargs
   .option('dump-heap-every', { type: 'number', default: 0 })
   .argv;
 
-const t = new Train(RNNModel, Sequence, {
+const t = new Train(RNNModel, Maze, {
   lr: argv.lr,
   batchSize: argv['batch-size'],
   maxSteps: argv['max-steps'],
