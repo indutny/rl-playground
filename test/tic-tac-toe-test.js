@@ -7,6 +7,7 @@ describe('TicTacToe', () => {
     const env = new TicTacToe();
 
     assert.deepStrictEqual(await env.observe(), [
+      1,
       0, 0, 0,
       0, 0, 0,
       0, 0, 0,
@@ -19,6 +20,7 @@ describe('TicTacToe', () => {
     assert.strictEqual(await env.step(0), 0);
 
     assert.deepStrictEqual(await env.observe(), [
+      -1,
       -1, 0, 0,
       0, 0, 0,
       0, 0, 0,
@@ -31,6 +33,7 @@ describe('TicTacToe', () => {
     assert.strictEqual(await env.step(1), 0);
 
     assert.deepStrictEqual(await env.observe(), [
+      1,
       1, -1, 0,
       0, 0, 0,
       0, 0, 0,
@@ -43,6 +46,7 @@ describe('TicTacToe', () => {
     assert.strictEqual(await env.step(4), 0);
 
     assert.deepStrictEqual(await env.observe(), [
+      -1,
       -1, 1, 0,
       0, -1, 0,
       0, 0, 0,
@@ -56,6 +60,7 @@ describe('TicTacToe', () => {
     assert.ok(!env.isFinished());
 
     assert.deepStrictEqual(await env.observe(), [
+      1,
       1, -1, -1,
       0, 1, 0,
       0, 0, 0,
@@ -65,7 +70,7 @@ describe('TicTacToe', () => {
       1, 0, 1,
       1, 1, 1,
     ]);
-    assert.strictEqual(await env.step(8), 1);
+    assert.strictEqual((await env.step(8)).toFixed(3), '1.148');
 
     assert.ok(env.isFinished());
 
