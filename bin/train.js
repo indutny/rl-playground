@@ -34,10 +34,10 @@ const t = new Train(RNNModel, TicTacToe, {
   printEnvEvery: argv['print-env-every'],
   dumpHeapEvery: argv['dump-heap-every'],
 
-  modelCount: 2,
+  modelCount: 4,
 
   avatar: {
-    count: 2,
+    count: 0,
     generationSpread: 100,
   }
 });
