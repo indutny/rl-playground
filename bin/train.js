@@ -10,6 +10,7 @@ import Train from '../lib/train.js';
 
 const argv = yargs
   .option('lr', { type: 'number', default: 0.01 })
+  .option('train-multiplier', { type: 'number', default: 16 })
   .option('batch-size', { type: 'number', default: 128 })
   .option('max-steps', { type: 'number', default: 128 })
   .option('entropy-alpha', { type: 'number', default: 0.2 })
@@ -17,12 +18,14 @@ const argv = yargs
   .option('reward-gamma', { type: 'number', default: 0.99 })
   .option('log-dir', { type: 'string', default: path.join('.', 'logs') })
   .option('name', { type: 'string', default: `default-${Date.now()}` })
-  .option('print-env-every', { type: 'number', default: 100 })
+  .option('print-env-every', { type: 'number', default: 10 })
   .option('dump-heap-every', { type: 'number', default: 0 })
   .argv;
 
-const t = new Train(RNNModel, Prisoner, {
+const t = new Train(RNNModel, Maze, {
   lr: argv.lr,
+  trainMultiplier: argv['train-multiplier'],
+
   batchSize: argv['batch-size'],
   maxSteps: argv['max-steps'],
   entropyAlpha: argv['entropy-alpha'],
@@ -34,7 +37,7 @@ const t = new Train(RNNModel, Prisoner, {
   printEnvEvery: argv['print-env-every'],
   dumpHeapEvery: argv['dump-heap-every'],
 
-  modelCount: 4,
+  modelCount: 1,
 
   avatar: {
     count: 0,
