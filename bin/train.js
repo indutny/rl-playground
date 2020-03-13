@@ -13,6 +13,7 @@ const argv = yargs
   .option('batch-size', { type: 'number', default: 128 })
   .option('max-steps', { type: 'number', default: 128 })
   .option('entropy-alpha', { type: 'number', default: 0.2 })
+  .option('entropy-decay', { type: 'number', default: 2000 })
   .option('reward-gamma', { type: 'number', default: 0.99 })
   .option('log-dir', { type: 'string', default: path.join('.', 'logs') })
   .option('name', { type: 'string', default: `default-${Date.now()}` })
@@ -25,6 +26,7 @@ const t = new Train(RNNModel, TicTacToe, {
   batchSize: argv['batch-size'],
   maxSteps: argv['max-steps'],
   entropyAlpha: argv['entropy-alpha'],
+  entropyDecay: argv['entropy-decay'],
   rewardGamma: argv['reward-gamma'],
   logDir: argv['log-dir'],
   runName: argv['name'],
@@ -34,7 +36,8 @@ const t = new Train(RNNModel, TicTacToe, {
 
   avatar: {
     count: 1,
-    totalCount: 10,
+    totalCount: 20,
+    generationSpread: 50,
   }
 });
 
