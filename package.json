@@ -7,6 +7,7 @@
   "scripts": {
     "lint": "eslint lib",
     "lint:fix": "npm run lint -- --fix",
+    "build:proto": "pbjs -t static-module -w es6 lib/storage.proto > lib/storage.js",
     "mocha": "mocha --reporter=spec test/*-test.js",
     "test": "npm run lint && npm run mocha"
   },

@@ -17,9 +17,12 @@ const argv = yargs
   .option('entropy-decay', { type: 'number', default: 2000 })
   .option('reward-gamma', { type: 'number', default: 0.99 })
   .option('log-dir', { type: 'string', default: path.join('.', 'logs') })
+  .option('save-dir', { type: 'string', default: path.join('.', 'saves') })
   .option('name', { type: 'string', default: `default-${Date.now()}` })
   .option('print-env-every', { type: 'number', default: 10 })
   .option('dump-heap-every', { type: 'number', default: 0 })
+  .option('save-every', { type: 'number', default: 100 })
+  .option('max-saves', { type: 'number', default: 100 })
   .argv;
 
 const t = new Train(RNNModel, Maze, {
@@ -36,6 +39,9 @@ const t = new Train(RNNModel, Maze, {
 
   printEnvEvery: argv['print-env-every'],
   dumpHeapEvery: argv['dump-heap-every'],
+  saveEvery: argv['save-every'],
+  saveDir: argv['save-dir'],
+  maxSaves: argv['max-saves'],
 
   modelCount: 1,
 
