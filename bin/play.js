@@ -37,7 +37,7 @@ async function main(Model, Environment) {
   console.log(env.toString());
 }
 
-main(RNNModel, Maze).catch((e) => {
+main(RNNModel, TicTacToe).catch((e) => {
   console.error(e.stack);
   process.exit(1);
 });
