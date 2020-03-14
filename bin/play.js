@@ -26,6 +26,7 @@ async function main(Model, Environment) {
     state = await model.step({
       envs: [ env ],
       state,
+      deterministic: true,
     });
 
     if (env.isFinished()) {
