@@ -26,7 +26,7 @@ async function main(Model, Environment) {
     state = await model.step({
       envs: [ env ],
       state,
-      deterministic: true,
+      deterministic: false,
     });
 
     if (env.isFinished()) {
@@ -37,7 +37,7 @@ async function main(Model, Environment) {
   console.log(env.toString());
 }
 
-main(RNNModel, TicTacToe).catch((e) => {
+main(RNNModel, Maze).catch((e) => {
   console.error(e.stack);
   process.exit(1);
 });
