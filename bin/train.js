@@ -25,7 +25,7 @@ const argv = yargs
   .option('max-saves', { type: 'number', default: 100 })
   .argv;
 
-const t = new Train(RNNModel, TicTacToe, {
+const t = new Train(RNNModel, Maze, {
   lr: argv.lr,
   trainMultiplier: argv['train-multiplier'],
 
@@ -46,7 +46,7 @@ const t = new Train(RNNModel, TicTacToe, {
   modelCount: 1,
 
   avatar: {
-    count: 10,
+    count: 0,
     generationSpread: 10,
   }
 });
